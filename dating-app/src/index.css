@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFF3E2;
+}
+
+* {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.primary-button {
+  color: #FFF;
+  text-transform: uppercase;
+  font-size: 15px;
+  background-color: #E74646;
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: none;
+}
+
+.primary-button:hover {
+  background-color: #FA9884;
+}
+
+body {
+  text-align: center;
+}
+
+/* ===== NAVBAR ===== */
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav .logo-container {
+  width: 170px;
+  margin: 15px;
+}
+
+nav .logo-container .logo {
+  width: 100%;
+}
+
+nav .nav-button {
+  color: #FFF;
+  background-color: #E74646;
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  margin: 10px;
+}
+
+nav .nav-button:disabled {
+  background-color: rgb(35, 35, 35);
+  color: gray;
+}
+
+/* ===== HOME ===== */
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+}
+
+/* ===== AUTHMODAL ===== */
+
+.auth-modal {
+  top: 175px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 360px;
+  /* max-width: 360px; */
+  height: 600px;
+  background-color: #FA9884;
+  border-radius: 10px;
+  padding: 40px
+}
+
+.auth-modal .close-icon {
+  float: right;
+}
+
+.secondary-button {
+  color: gray;
+  background-color: white;
+  font-weight: 500;
+  font-size: 15px;
+  text-transform: uppercase;
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: 1px solid black;
+}
+
+.secondary-button:hover {
+  background-color: #FFF3E2;
+  border: 1px solid black;
+}
+
+.auth-modal form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-modal input[type=email],
+.auth-modal input[type=password] {
+  padding: 8px;
+  margin: 8px;
+  font-size: 17px;
+}
