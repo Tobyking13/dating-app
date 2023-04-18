@@ -30,8 +30,6 @@ html, body {
   background-color: #FA9884;
 }
 
-
-
 /* ===== NAVBAR ===== */
 
 nav {
@@ -127,6 +125,10 @@ nav .nav-button:disabled {
 
 /* ===== ONBOARDING ===== */
 
+.onboarding {
+  border-top: solid 1px rgb(154,154,154);
+}
+
 .onboarding form {
   display: flex;
   justify-content: center;
@@ -179,14 +181,16 @@ nav .nav-button:disabled {
   display: none;
 }
 
+.onboarding form input[type=checkbox] {
+  align-self: start;
+}
+
 .onboarding form input[type=number] {
   width: 10%;
 }
 
 .onboarding form input[type=radio]:checked + label {
   border: solid 2px #E74646;
-  /* background-color: #FA9884; */
-  /* color: white; */
 }
 
 .onboarding form input[type=submit]:hover {
@@ -196,3 +200,8 @@ nav .nav-button:disabled {
 .onboarding form input[type=submit]:active {
   background-color: #E74646;
 }
+
+.onboarding form .photo-container img {
+  width: 100%;
+}
+
