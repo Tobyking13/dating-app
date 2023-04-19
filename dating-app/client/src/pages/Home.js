@@ -3,7 +3,7 @@ import AuthModal from "../components/AuthModal";
 import { useState } from "react";
 
 const Home = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [ showModal, setShowModal ] = useState(false);
   const [ isSignUp, setIsSignUp ] = useState(true);
 
   const authToken = false;
@@ -17,6 +17,7 @@ const Home = () => {
     <div className="overlay">
       <NavBar
         minimal={false}
+        authToken={authToken}
         showModal={showModal}
         setShowModal={setShowModal}
         setIsSignUp={setIsSignUp}

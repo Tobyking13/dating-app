@@ -1,14 +1,12 @@
 import colorLogo from '../images/color.png'
 import minimalLogo from '../images/minimal.png'
 
-const NavBar = ({ minimal, showModal, setShowModal, setIsSignUp, isSignUp }) => {
+const NavBar = ({ minimal, authToken, showModal, setShowModal, setIsSignUp }) => {
 
     const handleClick = () => {
         setShowModal(true);
         setIsSignUp(false);
     }
-
-    const authToken = true;
 
     return (
         <nav>

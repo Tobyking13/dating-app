@@ -1,36 +1,50 @@
 import { useState } from "react";
+import { useCookies } from 'react-cookie';
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import NavBar from "../components/NavBar";
 
 const Onboarding = () => {
-    const [ formData, setFormData ] = useState({
-        user_id: '',
-        first_name: '',
-        dob_day: '',
-        dob_month: '',
-        dob_year: '',
-        show_gender: false,
-        gender_identity: 'man',
-        gender_interest: 'woman',
-        email: '',
-        url: '',
-        about: '',
-        matches: []
-    })
+  let navigate = useNavigate();
+  const [ cookies, setCookie, removeCookie] = useCookies(['user']);
+  console.log(cookies.UserId)
+  const [formData, setFormData] = useState({
+    user_id:  cookies.UserId,
+    first_name: "",
+    dob_day: "",
+    dob_month: "",
+    dob_year: "",
+    show_gender: false,
+    gender_identity: "man",
+    gender_interest: "woman",
+    url: "",
+    about: "",
+    matches: [],
+  });
 
-  const handleSubmit = () => {
-    console.log("submitted");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.put('http://localhost:8000/user', { formData });
+      const success = response.status === 200;
+      if (success) navigate('/dashboard');
+    } catch (err) {
+      console.log(err)
+    }
+    
   };
 
   const handleChange = (e) => {
-    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
     const name = e.target.name;
     setFormData((prevState) => ({
-        ...prevState,
-        [name] : value
-    }))
+      ...prevState,
+      [name]: value,
+    }));
   };
 
-  console.log(formData)
+  console.log(formData);
   return (
     <>
       <NavBar minimal={true} setShowModal={() => {}} showModal={false} />
@@ -175,7 +189,7 @@ const Onboarding = () => {
               required={true}
             />
             <div className="photo-container">
-                <img src={formData.url} alt="profile pic preview"></img>
+              {formData.url && <img src={formData.url} alt="profile pic preview"></img>}
             </div>
           </section>
         </form>
